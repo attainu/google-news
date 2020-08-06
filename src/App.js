@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import LoginPage from './Page/LoginPage';
 
 function App() {
   return (
     <div className="App">
-      
+      <LoginPage/>
     </div>
   );
 }
