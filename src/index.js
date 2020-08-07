@@ -5,11 +5,25 @@ import App from './App';
 import store from './redux/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
+import rrfConfig from './Config/firebase.config'
+import firebase from 'firebase/app'
+import { BrowserRouter as Router } from "react-router-dom";
+
+const rrfProps = {
+  firebase,
+  config: rrfConfig,
+  dispatch: store.dispatch
+}
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ReactReduxFirebaseProvider {...rrfProps}>
+      <Router>
+        <App />
+      </Router>
+      </ReactReduxFirebaseProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
