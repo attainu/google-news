@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import Navbar from '../Component/Navbar'
 import './css/HomePage.css'
+import SidebarMenu from '../Component/SidebarMenu'
+import HomeBody from '../Component/HomeBody'
 
 export class Homepage extends Component {
     render() {
         return (
-            <div>
+            <div className='homePage'>
                 <Navbar/>
-                <h1>Home Page</h1>
+                <section className='mainBody'>
+                <SidebarMenu/>
+                <HomeBody/>
+                </section>
             </div>
         )
     }

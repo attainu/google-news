@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import './CommonCss/CommonCss.css'
 import LoginPage from "./Page/LoginPage";
 import TopStoriesPage from "./Page/TopStoriesPage";
 import SourcePage from "./Page/SourcePage";
@@ -12,19 +12,17 @@ import Navbar from "./Component/Navbar";
 
 function App() {
   return (
-    <>
-      <div className="App">
+    <div className="App">
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route path="/login" component={LoginPage} />
         {/* <Route  path='/topStories' component={TopStoriesPage} />
-          <Route  path='/sources' component={SourcePage} />
-          <Route  path='/following' component={FollowingPage} />
-          <Route  path ='/bookmark' component ={BookmarkPage}/> 
-          <Route  path ='categories/:categoryNAME' component ={CategoryCountryPage}/>*/}
+                <Route  path='/sources' component={SourcePage} />
+                <Route  path='/following' component={FollowingPage} />
+                <Route  path ='/bookmark' component ={BookmarkPage}/> 
+                <Route  path ='categories/:categoryNAME' component ={CategoryCountryPage}/>*/}
       </Switch>
-      </div>
-    </>
+    </div>
   );
 }
 

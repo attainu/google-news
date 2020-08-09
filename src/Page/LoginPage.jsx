@@ -3,6 +3,8 @@ import "./css/LoginPage.css";
 import { connect } from "react-redux";
 import { signIn ,signUp } from "../redux/action/authAction";
 import {Redirect} from 'react-router-dom'
+import GoogleButton from 'react-google-button'
+import { useFirebase  } from 'react-redux-firebase'
 
 class LoginPage extends Component {
     state = {
@@ -10,6 +12,12 @@ class LoginPage extends Component {
         password: "",
         displayName: "",
     };
+    
+
+   loginWithGoogle =() =>{
+    const firebase = useFirebase()
+    return firebase.login({ provider: 'google', type: 'popup' })
+  }
     handleChange = (event) => {
         console.log(event.target.value)
         this.setState({
@@ -64,6 +72,8 @@ class LoginPage extends Component {
                             onChange={this.handleChange}
                         />
                         <button onClick={this.handleSignIn}>Sign In</button>
+                        {/* <p>or</p>
+                        <GoogleButton onClick={this.loginWithGoogle}/> */}
                     </form>
                 <div>{authError ? <p>{authError}</p>:null }</div>{/*todo not displayed properly*/}
                 </div>

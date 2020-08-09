@@ -12,22 +12,20 @@ class Navbar extends Component {
         return (
             <nav>
                 <i className="material-icons">menu</i>
-                <section>
-                    <img src="" alt="" />
+                <section className="logo">
+                    <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="" />
                     <h1>News</h1>
                 </section>
                 <input type="text" name="search" id="search" placeholder="search" />
 
                 {!auth.uid ? (
                     <>
-                        <h1>{auth.displayName}</h1>
-                        <h1>
-                            <Link to="/login">Login</Link>
-                        </h1>
+                        <h1>{auth.email}</h1>
+                            <Link to="/login"><h1>Login</h1></Link>
                     </>
                 ) : (
                         <h1 onClick={this.props.signOut}>
-                           logout
+                        logout
                         </h1>
                     )}
             </nav>

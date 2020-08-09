@@ -1,0 +1,20 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vmin;
+}
+
+.App {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#root {
+    width: 100%;
+}
