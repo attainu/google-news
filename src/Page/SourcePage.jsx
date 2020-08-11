@@ -6,7 +6,7 @@ import SourceCardList from "../Component/Card/SourceCardList";
 
 class SourcePage extends Component {
     componentDidMount() {
-        this.props.fetchStories("sources", 20);
+        this.props.fetchStories("sources");
     }
 
     render() {

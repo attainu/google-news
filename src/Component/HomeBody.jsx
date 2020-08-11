@@ -7,7 +7,6 @@ import PostCardList from "./Card/PostCardList";
 import { connect } from "react-redux";
 import { fetchStories } from "../redux/action/storiesAction";
 
-
 class HomeBody extends Component {
     componentDidMount() {
         this.props.fetchStories('top-headlines',5);

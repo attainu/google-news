@@ -25,7 +25,6 @@ const SourceCard = ({ article }) => {
     <p className="sourceCardCategory">{category}</p>
     <p className="sourceCardLanguage">{language}</p>
     <p className="sourceCardCountry">{country}</p>
-
                 </section>
             </a>
         </section>
