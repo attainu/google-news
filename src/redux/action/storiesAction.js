@@ -7,10 +7,14 @@ export const fetchStories = (endpoint,pagesize) => async (dispatch) => {
     dispatch({ type: "TOGGLE_FETCHING_STATE" });
 
     const response = await axios(
-      `${newsBaseUrl}/${endpoint}?country=in${pagesize?`&pageSize=+${pagesize}`:''}&apiKey=${newsApiKey}`//todo add
+      `https://cors-anywhere.herokuapp.com/${newsBaseUrl}/${endpoint}?country=in${pagesize?`&pageSize=+${pagesize}`:''}&apiKey=${newsApiKey}`//todo add
     );
-      console.log(response)
-    const data = response.data.articles;
+      console.log(response.data.sources)
+      let data ='';
+      if(endpoint==='top-headlines')
+        data = response.data.articles;
+      else if (endpoint === 'sources')
+        data = response.data.sources
     console.log(data);
     dispatch({ type: "SET_STORIES", payload: data });
   } catch (err) {
