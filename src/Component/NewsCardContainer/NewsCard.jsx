@@ -1,6 +1,4 @@
 import React from "react";
-// import { connect } from "react-redux";
-// import { fetchRelatedStories } from "../../redux/action/topStoriesAction";
 
 const NewsCard = ({ article }) => {
   const {
@@ -33,16 +31,16 @@ const NewsCard = ({ article }) => {
             alt=""
             style={{ width: "200px", height: "200px" }}
           />
-          <p className="CardTitle"> {title} </p>s
+          <p className="CardTitle"> {title} </p>
           <p className="CardDescription"> {description} </p>
           <p className="CardAuthor"> {author} </p>
           <p className="CardName"> {name} </p>
           <p className="CardTime"> {timeStampToDate(publishedAt)} </p>
         </section>
       </a>
-      <section className="ViewRelatedPosts">
-        {/* <button onClick={fetchRelatedStories(title)}>View Related Posts</button> */}
-      </section>
+      {/* <section className="ViewRelatedPosts">
+        <button onClick={fetchRelatedStories(title)}>View Related Posts</button>
+      </section> */}
     </div>
   );
 };
