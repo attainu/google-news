@@ -3,7 +3,7 @@ const initialState = {
   isFetching: false,
 };
 
-const topStoriesReducer = (state = initialState, action) => {
+const storiesReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -21,4 +21,4 @@ const topStoriesReducer = (state = initialState, action) => {
   }
 };
 
-export default topStoriesReducer;
+export default storiesReducer;

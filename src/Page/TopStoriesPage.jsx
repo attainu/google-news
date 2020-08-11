@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import NewsCardContainer from "../Component/NewsCardContainer/NewsCardContainer";
+import PostCardList from "../Component/Card/PostCardList";
 
 import { connect } from "react-redux";
-import { fetchTopStories } from "../redux/action/topStoriesAction";
+import { fetchStories } from "../redux/action/storiesAction";
 
 class TopStoriesPage extends Component {
   componentDidMount() {
-    this.props.fetchTopStories();
+    this.props.fetchStories('top-headlines',20);
   }
 
   render() {
@@ -14,7 +14,7 @@ class TopStoriesPage extends Component {
       <div>Loading....</div>
     ) : (
       <div>
-        <NewsCardContainer stories={this.props.stories} />
+        <PostCardList stories={this.props.stories} />
       </div>
     );
   }
@@ -22,9 +22,9 @@ class TopStoriesPage extends Component {
 
 const mapStateToProps = (storeState) => {
   return {
-    stories: storeState.topStoriesStatus.stories,
-    isFetching: storeState.topStoriesStatus.isFetching,
+    stories: storeState.storiesStatus.stories,
+    isFetching: storeState.storiesStatus.isFetching,
   };
 };
 
-export default connect(mapStateToProps, { fetchTopStories })(TopStoriesPage);
+export default connect(mapStateToProps, { fetchStories })(TopStoriesPage);

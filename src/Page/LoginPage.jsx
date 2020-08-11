@@ -72,23 +72,23 @@ class LoginPage extends Component {
                             onChange={this.handleChange}
                         />
                         <button onClick={this.handleSignIn}>Sign In</button>
-                        {/* <p>or</p>
+                        {/* <p className='pTag'>or</p>
                         <GoogleButton onClick={this.loginWithGoogle}/> */}
                     </form>
-                <div>{authError ? <p>{authError}</p>:null }</div>{/*todo not displayed properly*/}
+                <div>{authError ? <p className='pTag'>{authError}</p>:null }</div>{/*todo not displayed properly*/}
                 </div>
                 <div className="overlay-container">
                     <div className="overlay">
                         <div className="overlay-panel overlay-left">
                             <h1>Welcome Back!</h1>
-                            <p>Sign In</p>
+                            <p className='pTag'>Sign In</p>
                             <button className="ghost" id="signIn" onClick={this.handleSignInShow}>
                                 Sign In
                             </button>
                         </div>
                         <div className="overlay-panel overlay-right">
                             <h1>To</h1>
-                            <p>Sign up</p>
+                            <p className='pTag'>Sign up</p>
                             <button className="ghost" id="signUp" onClick={this.handleSignUpShow}>
                                 Sign Up
                             </button>

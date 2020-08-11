@@ -1,12 +1,12 @@
 import authReducer from "./reducer/authReducer";
 import { combineReducers } from "redux";
 import { firebaseReducer } from "react-redux-firebase";
-import topStoriesReducer from "./reducer/topStoriesReducer";
+import storiesReducer from "./reducer/storiesReducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,
   firebase: firebaseReducer,
-  topStoriesStatus: topStoriesReducer,
+  storiesStatus: storiesReducer,
 });
 
 export default rootReducer;
