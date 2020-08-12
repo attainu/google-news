@@ -13,10 +13,10 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/" component={Homepage} />
+        <Route path="/" component={Homepage} />
         <Route path="/login" component={LoginPage} />
-        <Route path="/topStories" component={TopStoriesPage} />
-          <Route path="/source" component={SourcePage} />
+        {/* <Route path="/topStories" component={TopStoriesPage} />
+          <Route path="/source" component={SourcePage} /> */}
         {/* <Route  path='/following' component={FollowingPage} />
                 <Route  path ='/bookmark' component ={BookmarkPage}/> 
                 <Route  path ='categories/:categoryNAME' component ={CategoryCountryPage}/> */}

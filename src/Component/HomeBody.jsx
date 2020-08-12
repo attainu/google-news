@@ -6,6 +6,7 @@ import { Tabs } from "@feuer/react-tabs";
 import PostCardList from "./Card/PostCardList";
 import { connect } from "react-redux";
 import { fetchStories } from "../redux/action/storiesAction";
+import SourceCardList from "./Card/SourceCardList";
 
 class HomeBody extends Component {
     componentDidMount() {
@@ -32,7 +33,7 @@ class HomeBody extends Component {
                     <PostCardList stories={this.props.stories} />
                     </Tabs.Tab>
                     <Tabs.Tab id="source" title="Source">
-                        <div style={{ padding: 10 }}>This is tab 2</div>
+                    <SourceCardList stories={this.props.stories} />
                     </Tabs.Tab>
                 </Tabs>
             </section>

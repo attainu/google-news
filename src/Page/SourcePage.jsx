@@ -14,7 +14,7 @@ class SourcePage extends Component {
             <div>Loading....</div>
         ) : (
                 <div>
-                    <SourceCardList stories={this.props.stories} />{/*todo error map*/}
+                    <SourceCardList stories={this.props.stories} />
                 </div>
             );
     }

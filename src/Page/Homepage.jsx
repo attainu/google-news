@@ -18,12 +18,12 @@ export class Homepage extends Component {
         <section className="mainBody">
           <SidebarMenu />
           <section>
-            <Switch>
-          <Route path="/" component={HomeBody} />
-          
+          <Switch>
+          <Route exact path="/" component={HomeBody} />
+          <Route path="/topStories" component={TopStoriesPage} />
+          <Route path="/source" component={SourcePage} />
           </Switch>
           </section>
-          
         </section>
       </div>
     );
