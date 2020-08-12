@@ -1,16 +1,18 @@
 import React from "react";
 import "./css/SidebarMenu.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function SidebarMenu() {
   return (
     <div>
       <ul className="menuList">
         <li>Home</li>
-        <Link to="/topStories">
+        <NavLink to="/topStories">
           <li>Top stories</li>
-        </Link>
-        <li>Source</li>
+        </NavLink>
+        <NavLink to="/source">
+          <li>Source</li>
+        </NavLink>
         <li>Following</li>
         <li>Bookmark</li>
         <hr />
