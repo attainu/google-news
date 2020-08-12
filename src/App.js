@@ -6,6 +6,7 @@ import SourcePage from "./Page/SourcePage";
 import FollowingPage from "./Page/FollowingPage";
 import BookmarkPage from "./Page/BookmarkPage";
 import CategoryCountryPage from "./Page/CategoryCountryPage";
+import WorldNewsPage from "./Page/WorldNewsPage";
 import Homepage from "./Page/Homepage";
 import { Switch, Route } from "react-router-dom";
 
@@ -19,7 +20,7 @@ function App() {
           <Route path="/source" component={SourcePage} /> */}
         {/* <Route  path='/following' component={FollowingPage} />
                 <Route  path ='/bookmark' component ={BookmarkPage}/> 
-                <Route  path ='categories/:categoryNAME' component ={CategoryCountryPage}/> */}
+                */}
       </Switch>
     </div>
   );

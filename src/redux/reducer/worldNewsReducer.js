@@ -1,14 +1,14 @@
-import { SET_TOP_STORIES, TOGGLE_FETCHING_STATE } from "../actionTypes";
+import { SET_WORLD_STORIES, TOGGLE_FETCHING_STATE } from "../actionTypes";
 const initialState = {
   stories: [],
   isFetching: false,
 };
 
-const storiesReducer = (state = initialState, action) => {
+const worldNewsReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case SET_TOP_STORIES:
+    case SET_WORLD_STORIES:
       return {
         ...state,
         stories: payload,
@@ -23,4 +23,4 @@ const storiesReducer = (state = initialState, action) => {
   }
 };
 
-export default storiesReducer;
+export default worldNewsReducer;

@@ -6,6 +6,8 @@ import HomeBody from "../Component/HomeBody";
 import TopStoriesPage from "./TopStoriesPage";
 import SourcePage from "./SourcePage";
 import {  Route, Switch } from "react-router-dom";
+import CategoryCountryPage from "./Page/CategoryCountryPage";
+import WorldNewsPage from "./Page/WorldNewsPage";
 
 
 
@@ -22,6 +24,13 @@ export class Homepage extends Component {
           <Route exact path="/" component={HomeBody} />
           <Route path="/topStories" component={TopStoriesPage} />
           <Route path="/source" component={SourcePage} />
+          <Route
+          exact
+          path="/categories/:categoryName"
+          component={CategoryCountryPage}
+        />
+        <Route exact path="/worldnews" component={WorldNewsPage} />
+        
           </Switch>
           </section>
         </section>
