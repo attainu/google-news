@@ -14,6 +14,7 @@ class SidebarMenu extends Component {
     ],
   };
   handleClick = (event) => {
+    this.props.history.replace('/')
     this.props.history.push(
       `categories/${this.state.categoryElements[event.target.id]}`
     );
@@ -24,13 +25,13 @@ class SidebarMenu extends Component {
       <div>
         <ul className="menuList">
           <NavLink to="/">
-          <li>Home</li>
+            <li>Home</li>
           </NavLink>
           <NavLink to="/topStories">
             <li>Top stories</li>
           </NavLink>
           <NavLink to="/source">
-          <li>Source</li>
+            <li>Source</li>
           </NavLink>
           <li>Following</li>
           <li>Bookmark</li>
@@ -59,7 +60,7 @@ class SidebarMenu extends Component {
             India
           </li>
 
-          <NavLink to ="/worldnews">
+          <NavLink to="/worldnews">
             <li>World</li>
           </NavLink>
         </ul>
