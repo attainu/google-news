@@ -4,11 +4,7 @@ const initialState = {
   isFetching: false,
 };
 
-<<<<<<< HEAD:src/redux/reducer/storiesReducer.js
 const storiesReducer = (state = initialState, action) => {
-=======
-const StoriesReducer = (state = initialState, action) => {
->>>>>>> categoryPage:src/redux/reducer/topStoriesReducer.js
   const { type, payload } = action;
 
   switch (type) {
@@ -27,8 +23,4 @@ const StoriesReducer = (state = initialState, action) => {
   }
 };
 
-<<<<<<< HEAD:src/redux/reducer/storiesReducer.js
 export default storiesReducer;
-=======
-export default StoriesReducer;
->>>>>>> categoryPage:src/redux/reducer/topStoriesReducer.js
