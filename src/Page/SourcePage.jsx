@@ -1,20 +1,23 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { fetchStories } from "../redux/action/storiesAction";
 import SourceCardList from "../Component/Card/SourceCardList";
+import { fetchSource } from "../redux/action/sourceAction";
 
 class SourcePage extends Component {
     componentDidMount() {
-        this.props.fetchStories("sources");
+        this.props.fetchSource("sources");
     }
 
+    
+    
     render() {
         return this.props.isFetching ? (
             <div>Loading....</div>
         ) : (
                 <div>
-                    <SourceCardList stories={this.props.stories} />
+                    {console.log(this.props.source)}
+                    <SourceCardList stories={this.props.source} />
                 </div>
             );
     }
@@ -22,9 +25,9 @@ class SourcePage extends Component {
 
 const mapStateToProps = (storeState) => {
     return {
-        stories: storeState.storiesStatus.stories,
-        isFetching: storeState.storiesStatus.isFetching,
+        source: storeState.sourceStatus.source,
+        isFetching: storeState.sourceStatus.isFetching,
     };
 };
 
-export default connect(mapStateToProps, { fetchStories })(SourcePage);
+export default connect(mapStateToProps, { fetchSource })(SourcePage);

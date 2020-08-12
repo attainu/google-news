@@ -6,8 +6,8 @@ import HomeBody from "../Component/HomeBody";
 import TopStoriesPage from "./TopStoriesPage";
 import SourcePage from "./SourcePage";
 import {  Route, Switch } from "react-router-dom";
-import CategoryCountryPage from "./Page/CategoryCountryPage";
-import WorldNewsPage from "./Page/WorldNewsPage";
+import CategoryCountryPage from "./CategoryCountryPage";
+import WorldNewsPage from "./WorldNewsPage";
 
 
 

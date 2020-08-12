@@ -23,7 +23,9 @@ class SidebarMenu extends Component {
     return (
       <div>
         <ul className="menuList">
+          <NavLink to="/">
           <li>Home</li>
+          </NavLink>
           <NavLink to="/topStories">
             <li>Top stories</li>
           </NavLink>
