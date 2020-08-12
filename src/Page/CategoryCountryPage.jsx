@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import NewsCardContainer from "../Component/NewsCardContainer/NewsCardContainer";
 
+import PostCardList from "../Component/Card/PostCardList";
 import { fetchCategoryStories } from "../redux/action/categoryActions";
-
 class CategoryCountryPage extends Component {
   componentDidMount() {
     this.props.fetchCategoryStories(this.props.match.params.categoryName);
@@ -11,7 +10,7 @@ class CategoryCountryPage extends Component {
   render() {
     return (
       <div>
-        <NewsCardContainer stories={this.props.categoryStories} />
+        <PostCardList stories={this.props.categoryStories} />
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { fetchWorldNews } from "../redux/action/worldNewsAction";
-import NewsCardContainer from "../Component/NewsCardContainer/NewsCardContainer";
+import PostCardList from "../Component/Card/PostCardList";
 
 import { connect } from "react-redux";
 
@@ -11,7 +11,7 @@ class WorldNewsPage extends Component {
   render() {
     return (
       <div>
-        <NewsCardContainer stories={this.props.worldStories} />
+        <PostCardList stories={this.props.worldStories} />
       </div>
     );
   }

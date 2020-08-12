@@ -1,0 +1,27 @@
+.postCard{
+  border-radius: 20px;
+  border: black 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: flex-start;
+  padding: .5rem;
+  margin: .5rem;
+}
+.cardImage{
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 20px;
+  margin: .5rem;
+}
+.mainDetails{
+  display: flex;
+}
+.authorDetails{
+  display: flex;
+  justify-content: space-around;
+}
+.cardTitle{
+  font-weight: bold;
+  font-size: x-large;
+}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NewsCardContainer from "../Component/NewsCardContainer/NewsCardContainer";
+import PostCardList from "../Component/Card/PostCardList";
 
 import { connect } from "react-redux";
 import { fetchStories } from "../redux/action/storiesAction";
@@ -14,7 +14,7 @@ class TopStoriesPage extends Component {
       <div>Loading....</div>
     ) : (
       <div>
-        <NewsCardContainer stories={this.props.stories} />
+        <PostCardList stories={this.props.stories} />
       </div>
     );
   }

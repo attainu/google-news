@@ -1,7 +1,7 @@
 import authReducer from "./reducer/authReducer";
 import { combineReducers } from "redux";
 import { firebaseReducer } from "react-redux-firebase";
-import StoriesReducer from "./reducer/StoriesReducer";
+import StoriesReducer from "./reducer/storiesReducer";
 import categoryPageReducer from "./reducer/categoryReducer";
 import worldNewsReducer from "./reducer/worldNewsReducer";
 
