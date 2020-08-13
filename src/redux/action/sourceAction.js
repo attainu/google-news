@@ -10,8 +10,8 @@ export const fetchSource = (endpoint) => async (dispatch) => {
       );
         console.log(response.data.sources)
         const data = response.data.sources
-      console.log(data);
-      dispatch({ type: "SET_SOURCE", payload: data });
+      // console.log(data);
+      dispatch({ type: "SET_SOURCE_STORIES", payload: data });
     } catch (err) {
       console.log(err.message);
     } finally {

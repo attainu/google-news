@@ -7,6 +7,12 @@ class CategoryCountryPage extends Component {
   componentDidMount() {
     this.props.fetchCategoryStories(this.props.match.params.categoryName);
   }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.categoryName !== prevProps.match.params.categoryName) {
+      this.props.fetchCategoryStories(this.props.match.params.categoryName)
+    }
+  }
   render() {
     return (
       <div>
