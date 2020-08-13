@@ -10,7 +10,7 @@ class SourcePage extends Component {
     }
 
     
-    
+
     render() {
         return this.props.isFetching ? (
             <div>Loading....</div>
@@ -26,7 +26,7 @@ class SourcePage extends Component {
 const mapStateToProps = (storeState) => {
     return {
         source: storeState.sourceStatus.source,
-        isFetching: storeState.sourceStatus.isFetching,
+        isSourceFetching: storeState.sourceStatus.isSourceFetching,
     };
 };
 

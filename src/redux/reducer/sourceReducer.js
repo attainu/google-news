@@ -1,7 +1,7 @@
 import { SET_SOURCE_STORIES, TOGGLE_SOURCE_FETCHING_STATE } from "../actionTypes";
 const initialState = {
   source: [],
-  isFetching: false,
+  isSourceFetching: false,
 };
 
 const sourceReducer = (state = initialState, action) => {
@@ -16,7 +16,7 @@ const sourceReducer = (state = initialState, action) => {
     case TOGGLE_SOURCE_FETCHING_STATE:
       return {
         ...state,
-        isFetching: !state.isFetching,
+        isSourceFetching: !state.isFetching,
       };
     default:
       return state;

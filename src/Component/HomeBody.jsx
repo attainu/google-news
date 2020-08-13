@@ -45,6 +45,8 @@ const mapStateToProps = (storeState) => {
     return {
     stories: storeState.storiesStatus.stories,
     isFetching: storeState.storiesStatus.isFetching,
+    source: storeState.sourceStatus.source,
+    isSourceFetching: storeState.sourceStatus.isSourceFetching,
     };
 };
 
