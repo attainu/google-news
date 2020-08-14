@@ -10,11 +10,13 @@ import firebase from 'firebase/app'
 import { BrowserRouter as Router } from "react-router-dom";
 import { useSelector } from 'react-redux'
 import { isLoaded } from 'react-redux-firebase'
+import { createFirestoreInstance } from 'redux-firestore'
 
 const rrfProps = {
   firebase,
   config: rrfConfig,
-  dispatch: store.dispatch
+  dispatch: store.dispatch,
+  createFirestoreInstance
 }
 
 function AuthIsLoaded({ children }) {

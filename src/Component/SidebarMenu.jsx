@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./css/SidebarMenu.css";
-import { NavLink, Redirect, withRouter } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 class SidebarMenu extends Component {
   state = {
     categoryElements: [
@@ -33,8 +33,12 @@ class SidebarMenu extends Component {
           <NavLink to="/source">
             <li>Source</li>
           </NavLink>
+          <NavLink to="/following">
           <li>Following</li>
+          </NavLink>
+          <NavLink to="/bookmark">
           <li>Bookmark</li>
+          </NavLink>
           <hr />
 
           <li onClick={this.handleClick} id="0">
