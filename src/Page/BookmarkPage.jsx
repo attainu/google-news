@@ -6,11 +6,10 @@ import PostCardList from "../Component/Card/PostCardList";
 
 class BookmarkPage extends Component {
     render() {
-        // const {bookmarkStatus} =this.props
+        const {bookmarks} =this.props
         return (
             <div>
-                {console.log(this.props)}
-                {/* <PostCardList stories={this.props}/> */}
+                {/* <PostCardList stories={this.props.}/> */}
             </div>
         );
     }
@@ -24,6 +23,6 @@ const mapStateToProps = (state) => {
 };
 
 export default compose(
-    firebaseConnect([{ collection: "bookmarks" }]),
+    firebaseConnect(()=>["bookmarks"]),
     connect(mapStateToProps)
 )(BookmarkPage);

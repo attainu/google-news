@@ -5,8 +5,8 @@ import store from './redux/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
-import rrfConfig from './Config/firebase.config'
-import firebase from 'firebase/app'
+// import rrfConfig from './Config/firebase.config'
+import firebase from './Config/firebase.config'
 import { BrowserRouter as Router } from "react-router-dom";
 import { useSelector } from 'react-redux'
 import { isLoaded } from 'react-redux-firebase'
@@ -14,7 +14,7 @@ import { createFirestoreInstance } from 'redux-firestore'
 
 const rrfProps = {
   firebase,
-  config: rrfConfig,
+  config: {},
   dispatch: store.dispatch,
   createFirestoreInstance
 }
