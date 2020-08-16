@@ -1,13 +1,13 @@
-nav{
-    width: 100vw;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+nav {
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-.logo{
-    display: flex;
+.logo {
+  display: flex;
 }
-#search{
-    width: 50%;
+form {
+  width: 50%;
 }

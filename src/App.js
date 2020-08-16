@@ -1,12 +1,10 @@
 import React from "react";
 import "./CommonCss/CommonCss.css";
 import LoginPage from "./Page/LoginPage";
-import TopStoriesPage from "./Page/TopStoriesPage";
-import SourcePage from "./Page/SourcePage";
+
 import FollowingPage from "./Page/FollowingPage";
 import BookmarkPage from "./Page/BookmarkPage";
-import CategoryCountryPage from "./Page/CategoryCountryPage";
-import WorldNewsPage from "./Page/WorldNewsPage";
+
 import Homepage from "./Page/Homepage";
 import { Switch, Route } from "react-router-dom";
 

@@ -8,6 +8,7 @@ import SourcePage from "./SourcePage";
 import {  Route, Switch } from "react-router-dom";
 import CategoryCountryPage from "./CategoryCountryPage";
 import WorldNewsPage from "./WorldNewsPage";
+import SearchResultPage from './SearchResultPage'
 
 
 
@@ -29,7 +30,8 @@ export class Homepage extends Component {
           path="/categories/:categoryName"
           component={CategoryCountryPage}
         />
-        <Route exact path="/worldnews" component={WorldNewsPage} />
+         <Route exact path="/worldnews" component={WorldNewsPage} />
+         <Route exact path='/searchPage/:search' component = {SearchResultPage}/>   
         
           </Switch>
           </section>

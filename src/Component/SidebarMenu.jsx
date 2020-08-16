@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./css/SidebarMenu.css";
-import { NavLink, Redirect, withRouter } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 class SidebarMenu extends Component {
   state = {
     categoryElements: [
@@ -14,7 +14,7 @@ class SidebarMenu extends Component {
     ],
   };
   handleClick = (event) => {
-    this.props.history.replace('/')
+    this.props.history.replace("/");
     this.props.history.push(
       `categories/${this.state.categoryElements[event.target.id]}`
     );

@@ -1,5 +1,5 @@
 import React from "react";
-import './css/PostCard.css'
+import "./css/PostCard.css";
 
 const PostCard = ({ article }) => {
   const {
@@ -19,12 +19,17 @@ const PostCard = ({ article }) => {
     const year = dateObj.getFullYear();
     const date = dateObj.getDate();
 
-    return `${month}/${date}/${year}`;
+    return `${date}/${month}/${year}`; //swap month to date
   }
 
   return (
     <section className="postCard">
-      <a target="_blank" rel="noopener noreferrer" href={url} alt={name+' Url'}>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={url}
+        alt={name + " Url"}
+      >
         <section className="mainDetails">
           <img
             className="cardImage"
@@ -32,16 +37,20 @@ const PostCard = ({ article }) => {
             alt=""
             style={{ width: "200px", height: "200px" }}
           />
-          <section className='details'>
-          <p className="cardTitle"> {title} </p>
-          <p className="cardDescription"> {description} </p>
-          <section className='authorDetails'>
-          <p className="cardAuthor"><strong>Author :</strong> {author?author : 'No data found'} </p>
-          <p className="cardName"><strong>Source :</strong> {name} </p>
-          <p className="cardTime"> {timeStampToDate(publishedAt)} </p>
+          <section className="details">
+            <p className="cardTitle"> {title} </p>
+            <p className="cardDescription"> {description} </p>
+            <section className="authorDetails">
+              <p className="cardAuthor">
+                <strong>Author :</strong> {author ? author : "No data found"}{" "}
+              </p>
+              <p className="cardName">
+                <strong>Source :</strong> {name}{" "}
+              </p>
+              <p className="cardTime"> {timeStampToDate(publishedAt)} </p>
+            </section>
           </section>
-          </section>
-          </section>
+        </section>
       </a>
       <section className="ViewRelatedPosts">
         {/* todo related search */}
