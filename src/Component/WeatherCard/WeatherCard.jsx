@@ -2,11 +2,13 @@ import React from "react";
 import Form from "./Form";
 import Weather from "./Weather";
 import "./css/WeatherCard.css";
+import axios from "axios";
 
 // git project https://github.com/erikflowers/weather-icons
 import "weather-icons/css/weather-icons.css";
 
 const Api_Key = "a6adae971d0eac8ba295fd8a768037a1";
+const BaseURL = "http://api.openweathermap.org/data/2.5/weather?";
 
 class WeatherCard extends React.Component {
   constructor() {
@@ -20,6 +22,8 @@ class WeatherCard extends React.Component {
       temp_min: null,
       description: "",
       error: false,
+      latitude: null,
+      longitude: null,
     };
 
     this.weatherIcon = {
@@ -33,6 +37,7 @@ class WeatherCard extends React.Component {
     };
   }
 
+  //Get Weather Icons
   get_WeatherIcon(icons, rangeId) {
     switch (true) {
       case rangeId >= 200 && rangeId < 232:
@@ -61,37 +66,34 @@ class WeatherCard extends React.Component {
     }
   }
 
+  // convert to celsius
   calCelsius(temp) {
     let cell = Math.floor(temp - 273.15);
     return cell;
   }
 
-  getWeather = async (e) => {
+  // Get weather by city
+  getWeatherByCity = async (e) => {
     e.preventDefault();
-
     const city = e.target.elements.city.value;
-
     if (city) {
-      const api_call = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${Api_Key}`
-      );
+      axios.get(`${BaseURL}q=${city}&appid=${Api_Key}`).then((res) => {
+        const response = res.data;
+        this.setState({
+          city: `${response.name}, ${response.sys.country}`,
+          main: response.weather[0].main,
+          celsius: this.calCelsius(response.main.temp),
+          temp_max: this.calCelsius(response.main.temp_max),
+          temp_min: this.calCelsius(response.main.temp_min),
+          description: response.weather[0].description,
+          error: false,
+        });
 
-      const response = await api_call.json();
-
-      this.setState({
-        city: `${response.name}, ${response.sys.country}`,
-        main: response.weather[0].main,
-        celsius: this.calCelsius(response.main.temp),
-        temp_max: this.calCelsius(response.main.temp_max),
-        temp_min: this.calCelsius(response.main.temp_min),
-        description: response.weather[0].description,
-        error: false,
+        // setting icons
+        this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
+        console.log(response);
+        
       });
-
-      // seting icons
-      this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
-
-      console.log(response);
     } else {
       this.setState({
         error: true,
@@ -99,10 +101,54 @@ class WeatherCard extends React.Component {
     }
   };
 
+  // get curent location weather
+  getCurrentLocation = async () => {
+    axios
+      .get(
+        `${BaseURL}lat=${this.state.latitude}&lon=${this.state.longitude}&appid=${Api_Key}`
+      )
+      .then((res) => {
+        const response = res.data;
+        console.log(response);
+        this.setState({
+          city: `${response.name}, ${response.sys.country}`,
+          main: response.weather[0].main,
+          celsius: this.calCelsius(response.main.temp),
+          temp_max: this.calCelsius(response.main.temp_max),
+          temp_min: this.calCelsius(response.main.temp_min),
+          description: response.weather[0].description,
+          error: false,
+        });
+        // setting icons
+        this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
+      });
+  };
+
+  handleClick = () => {
+    this.getCurrentLocation();
+  };
+  componentDidMount() {
+    //get device location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        });
+        this.getCurrentLocation();
+      });
+    } else {
+      alert("Geolocation is not supported by this browser");
+    }
+  }
+
   render() {
     return (
       <div className="WeatherCard">
-        <Form loadweather={this.getWeather} error={this.state.error} />
+        <Form loadweather={this.getWeatherByCity} error={this.state.error} />
+        <button onClick={this.handleClick}>
+          <i  class="fas fa-search-location"></i>
+        </button>
         <Weather
           cityname={this.state.city}
           weatherIcon={this.state.icon}

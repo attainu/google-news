@@ -2,6 +2,7 @@ import React from "react";
 import "./css/form.css";
 
 const Form = (props) => {
+ 
   return (
     <div>
       <form onSubmit={props.loadweather}>
@@ -9,7 +10,7 @@ const Form = (props) => {
         <div className="city">
           <input
             type="text"
-            placeholder="City"
+            placeholder="Enter City..."
             name="city"
             autoComplete="off"
           />
