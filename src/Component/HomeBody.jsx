@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import NewsCard from "./NewsCard";
-import WeatherCard from "./WeatherCard";
+import WeatherCard from "./WeatherCard/WeatherCard";
 import "./css/HomeBody.css";
 import { Tabs } from "@feuer/react-tabs";
 import PostCardList from "./Card/PostCardList";

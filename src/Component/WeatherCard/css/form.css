@@ -1,0 +1,10 @@
+form {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  
+}
+
+.city, .country, button {
+  display: inline-block;
+}
