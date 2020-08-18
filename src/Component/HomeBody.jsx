@@ -11,7 +11,7 @@ import SourceCardList from "./Card/SourceCardList";
 
 class HomeBody extends Component {
   componentDidMount() {
-    this.props.fetchStories("top-headlines", 5);
+    this.props.fetchStories("top-headlines",1,5);
     this.props.fetchSource();
   }
   render() {

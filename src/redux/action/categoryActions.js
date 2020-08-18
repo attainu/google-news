@@ -9,7 +9,7 @@ export const fetchCategoryStories = (categoryName) => async (dispatch) => {
     dispatch({ type: TOGGLE_CATEGORY_FETCHING_STATE });
 
     const response = await axios(
-      `https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/top-headlines?country=in&category=${categoryName}&pageSize=20&apiKey=030c64300b5b4d14b11c5b91c2e25946`
+      `https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/top-headlines?country=in&category=${categoryName}&pageSize=100&apiKey=030c64300b5b4d14b11c5b91c2e25946`
     );
 
     const data = response.data.articles;

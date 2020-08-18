@@ -11,7 +11,7 @@ const storiesReducer = (state = initialState, action) => {
     case SET_TOP_STORIES:
       return {
         ...state,
-        stories: payload,
+        stories: payload
       };
     case TOGGLE_FETCHING_STATE:
       return {
