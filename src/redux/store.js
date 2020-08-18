@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { getFirebase } from "react-redux-firebase";
 import { getFirestore, reduxFirestore } from "redux-firestore";
-import firebase from '../Config/firebase.config'
+import rrfConfig from '../Config/firebase.config'
 
 
 import rootReducer from "./rootReducer";
@@ -18,7 +18,8 @@ const store = createStore(
   rootReducer,
   initialState,
   composeWithDevTools(
-    applyMiddleware(...middleware)
+    applyMiddleware(...middleware),
+    reduxFirestore(rrfConfig),
     )
 );
 
