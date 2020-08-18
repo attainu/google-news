@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-class NewsCard extends Component {
+class SwipeCard extends Component {
     render() {
         return (
             <div>
-                News Card
+                
             </div>
         )
     }
 }
 
-export default NewsCard
+export default SwipeCard

@@ -33,8 +33,12 @@ class SidebarMenu extends Component {
           <NavLink to="/source">
             <li>Source</li>
           </NavLink>
+          <NavLink to="/following">
           <li>Following</li>
+          </NavLink>
+          <NavLink to="/bookmark">
           <li>Bookmark</li>
+          </NavLink>
           <hr />
 
           <li onClick={this.handleClick} id="0">
