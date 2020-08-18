@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import WeatherCard from "./WeatherCard";
+import WeatherCard from "./WeatherCard/WeatherCard";
 import "./css/HomeBody.css";
 import { Tabs } from "@feuer/react-tabs";
 import PostCardList from "./Card/PostCardList";
@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { fetchStories } from "../redux/action/storiesAction";
 import { fetchSource } from "../redux/action/sourceAction";
 import SourceCardList from "./Card/SourceCardList";
-import SwipeCard from "./SwipeCard/SwipeCard";
+import SwipeCard from './SwipeCard/SwipeCard'
 
 class HomeBody extends Component {
   componentDidMount() {
@@ -18,7 +18,7 @@ class HomeBody extends Component {
     return (
       <section className="homeBody">
         <section className="topCards">
-          <SwipeCard />
+          <SwipeCard/>
           <WeatherCard />
         </section>
         <Tabs
