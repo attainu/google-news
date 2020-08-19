@@ -24,9 +24,9 @@
     "react-scripts": "^3.4.3",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
+    "redux-firestore": "^0.13.0",
     "redux-thunk": "^2.3.0",
-    "weather-icons": "git+https://github.com/erikflowers/weather-icons.git",
-    "redux-firestore": "^0.13.0"
+    "weather-icons": "git+https://github.com/erikflowers/weather-icons.git"
   },
   "scripts": {
     "start": "react-scripts start",
