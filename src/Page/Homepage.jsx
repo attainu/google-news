@@ -11,6 +11,8 @@ import {  Route, Switch } from "react-router-dom";
 import CategoryCountryPage from "./CategoryCountryPage";
 import WorldNewsPage from "./WorldNewsPage";
 import SearchResultPage from './SearchResultPage'
+import {Animated} from "react-animated-css";
+
 
 
 
@@ -18,10 +20,12 @@ export class Homepage extends Component {
   render() {
     return (
       <div className="homePage">
-        
+
         <Navbar />
         <section className="mainBody">
+        <Animated animationIn="slideInLeft" animationOut="slideOutLeft" animationInDuration={2000} animationOutDuration={2000} isVisible={true}>
           <SidebarMenu />
+          </Animated>
           <section>
           <Switch>
           <Route exact path="/" component={HomeBody} />

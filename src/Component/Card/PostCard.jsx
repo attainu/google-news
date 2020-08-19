@@ -44,7 +44,7 @@ class PostCard extends Component {
     return (
     <section className="postCard">
       <a target="_blank" rel="noopener noreferrer" href={url} alt={name+' Url'}>
-        <section className="mainDetails">
+        <section className="mainPostDetails">
           <img
             className="cardImage"
             src={urlToImage}
