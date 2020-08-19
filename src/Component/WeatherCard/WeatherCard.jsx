@@ -145,10 +145,8 @@ class WeatherCard extends React.Component {
   render() {
     return (
       <div className="WeatherCard">
+        <button className="search"><i onClick={this.handleClick} className="fas fa-map-marker-alt"> Current Location</i></button>
         <Form loadweather={this.getWeatherByCity} error={this.state.error} />
-        <button onClick={this.handleClick}>
-          <i  class="fas fa-search-location"></i>
-        </button>
         <Weather
           cityname={this.state.city}
           weatherIcon={this.state.icon}

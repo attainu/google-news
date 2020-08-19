@@ -1,5 +1,6 @@
 import React from "react";
 import SourceCard from "./SourceCard";
+import './css/SourceCardList.css'
 
 const SourceCardList = ({ stories }) => {
     return (

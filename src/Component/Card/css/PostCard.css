@@ -6,11 +6,11 @@
   justify-self: center;
   align-items: flex-start;
   padding: 0.5rem;
-  margin: 0.5rem;
+  margin: 0.7rem;
 }
 .cardImage {
-  width: 150px !important;
-  height: 150px !important;
+  width: 100px !important;
+  height: 100px !important;
   border-radius: 20px;
   margin: 0.5rem;
 }
@@ -24,4 +24,11 @@
 .cardTitle {
   font-weight: bold;
   font-size: x-large;
+  font-size: 1rem;
+}
+.bookmarkButton{
+  background-color: cadetblue;
+  border: none;
+  align-self: flex-start;
+  margin-left: 110px;
 }

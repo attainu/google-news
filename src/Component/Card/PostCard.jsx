@@ -63,6 +63,7 @@ class PostCard extends Component {
           </section>
       </a>
       <button 
+      className='bookmarkButton'
       onClick={()=>{
         this.setState({
           title:title,
@@ -76,11 +77,11 @@ class PostCard extends Component {
         console.log('create firestore')
         this.props.createBookmark(this.state)}
         )
-        }}>bookmark</button>
-      <section className="ViewRelatedPosts">
-        {/* todo related search */}
+        }}><i  className="fas fa-bookmark"> bookmark</i></button>
+      {/* <section className="ViewRelatedPosts">
+        todo related search 
         View Related Search
-      </section>
+      </section> */}
     </section>
   );}
 };

@@ -6,7 +6,7 @@ import { fetchSource } from "../redux/action/sourceAction";
 
 class SourcePage extends Component {
   componentDidMount() {
-    this.props.fetchSource("sources");
+    this.props.fetchSource();
   }
 
   render() {
