@@ -11,6 +11,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { useSelector } from 'react-redux'
 import { isLoaded } from 'react-redux-firebase'
 import { createFirestoreInstance } from 'redux-firestore'
+import SplashScreen from './Page/SplashScreen';
 
 const rrfProps = {
   firebase,
@@ -21,7 +22,7 @@ const rrfProps = {
 
 function AuthIsLoaded({ children }) {
   const auth = useSelector(state => state.firebase.auth)
-  if (!isLoaded(auth)) return <div>splash screen...</div>;
+  if (!isLoaded(auth)) return <SplashScreen/>;
   return children
 }
 
