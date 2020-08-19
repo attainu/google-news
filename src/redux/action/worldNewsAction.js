@@ -1,9 +1,9 @@
 import axios from "axios";
-import { SET_WORLD_STORIES, TOGGLE_FETCHING_STATE } from "../actionTypes";
+import { SET_WORLD_STORIES, TOGGLE_WORLD_STORIES_STATE } from "../actionTypes";
 
 export const fetchWorldNews = () => async (dispatch) => {
   try {
-    dispatch({ type: TOGGLE_FETCHING_STATE });
+    dispatch({ type: TOGGLE_WORLD_STORIES_STATE });
 
     const response = await axios(
       `https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/top-headlines?language=en&pageSize=100&apiKey=030c64300b5b4d14b11c5b91c2e25946`
@@ -15,6 +15,6 @@ export const fetchWorldNews = () => async (dispatch) => {
   } catch (err) {
     console.log(err.message);
   } finally {
-    dispatch({ type: TOGGLE_FETCHING_STATE });
+    dispatch({ type: TOGGLE_WORLD_STORIES_STATE });
   }
 };

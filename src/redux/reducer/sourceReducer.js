@@ -16,7 +16,7 @@ const sourceReducer = (state = initialState, action) => {
     case TOGGLE_SOURCE_FETCHING_STATE:
       return {
         ...state,
-        isSourceFetching: !state.isFetching,
+        isSourceFetching: !state.isSourceFetching,
       };
     default:
       return state;

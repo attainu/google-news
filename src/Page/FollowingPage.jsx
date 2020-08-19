@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import firebase from '../Config/firebase.config'
+import FollowingCardList from '../Component/Card/FollowingCardList'
 
 
 class FollowingPage extends Component {
@@ -23,7 +24,7 @@ class FollowingPage extends Component {
         const { followings } = this.state;
         return (
             <div>
-                {/*<SourceCardList stories={followings} /> */}
+                <FollowingCardList stories={followings} />
             </div>
         );
     }}

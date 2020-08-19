@@ -10,8 +10,13 @@ class SourcePage extends Component {
   }
 
   render() {
+    const loaderStyle = {
+      marginLeft: "500px",
+      marginTop: "300px",
+    };
+
     return this.props.isFetching ? (
-      <div>Loading....</div>
+      <div className="loader" style={loaderStyle}></div>
     ) : (
       <div>
         <SourceCardList stories={this.props.source} />
@@ -23,7 +28,7 @@ class SourcePage extends Component {
 const mapStateToProps = (storeState) => {
   return {
     source: storeState.sourceStatus.source,
-    isFetching: storeState.sourceStatus.isFetching,
+    isFetching: storeState.sourceStatus.isSourceFetching,
   };
 };
 

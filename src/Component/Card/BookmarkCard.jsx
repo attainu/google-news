@@ -1,24 +1,10 @@
 import React, { Component } from "react";
 import './css/PostCard.css'
-import { connect } from 'react-redux'
-
-import {createBookmark} from '../../redux/action/bookmarkAction'
 
 
-class PostCard extends Component {
-  state = {
-    title:'',
-    author:'',
-    description:'',
-    publishedAt:'',
-    url:'',
-    urlToImage:'',
-    name:'',
-  }
-
-  
+class BookmarkCard extends Component {
+ 
   render() {
-    
     const {
       title,
       author,
@@ -26,7 +12,7 @@ class PostCard extends Component {
       publishedAt,
       url,
       urlToImage,
-      source: { name },
+      name,
     } = this.props.article;
 
     
@@ -44,7 +30,8 @@ class PostCard extends Component {
     return (
     <section className="postCard">
       <a target="_blank" rel="noopener noreferrer" href={url} alt={name+' Url'}>
-        <section className="mainPostDetails">
+          <section className="mainPostDetails">
+          <i  className="fas fa-bookmark"></i>
           <img
             className="cardImage"
             src={urlToImage}
@@ -52,7 +39,8 @@ class PostCard extends Component {
             style={{ width: "200px", height: "200px" }}
           />
           <section className='details'>
-          <p className="cardTitle"> {title} </p>
+              <p className="cardTitle"> {title} </p>
+             
           <p className="cardDescription"> {description} </p>
           <section className='authorDetails'>
           <p className="cardAuthor"><strong>Author :</strong> {author?author : 'No data found'} </p>
@@ -61,34 +49,14 @@ class PostCard extends Component {
           </section>
           </section>
           </section>
-      </a>
-      <button 
-      className='bookmarkButton'
-      onClick={()=>{
-        this.setState({
-          title:title,
-          author:author,
-          description:description,
-          publishedAt:publishedAt,
-          url:url,
-          urlToImage:urlToImage,
-          name:name,
-        },()=>{
-        console.log('create firestore')
-        this.props.createBookmark(this.state)}
-        )
-        }}><i  className="far fa-bookmark"> bookmark</i></button>
-      {/* <section className="ViewRelatedPosts">
-        todo related search 
-        View Related Search
-      </section> */}
+        </a>
+        <button 
+          className='bookmarkButton'
+         ><i className="fas fa-minus-circle">Remove</i></button>
+     
     </section>
   );}
 };
 
-const mapDispatchToProps = dispatch =>{
-  return{
-    createBookmark: (bookmarks)=> dispatch(createBookmark(bookmarks))
-  }
-}
-export default connect(null, mapDispatchToProps)(PostCard);
+
+export default BookmarkCard;

@@ -1,4 +1,4 @@
-import { SET_WORLD_STORIES, TOGGLE_FETCHING_STATE } from "../actionTypes";
+import { SET_WORLD_STORIES, TOGGLE_WORLD_STORIES_STATE  } from "../actionTypes";
 const initialState = {
   stories: [],
   isFetching: false,
@@ -13,7 +13,7 @@ const worldNewsReducer = (state = initialState, action) => {
         ...state,
         stories: payload,
       };
-    case TOGGLE_FETCHING_STATE:
+    case TOGGLE_WORLD_STORIES_STATE :
       return {
         ...state,
         isFetching: !state.isFetching,

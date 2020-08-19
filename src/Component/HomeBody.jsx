@@ -7,18 +7,23 @@ import { connect } from "react-redux";
 import { fetchStories } from "../redux/action/storiesAction";
 import { fetchSource } from "../redux/action/sourceAction";
 import SourceCardList from "./Card/SourceCardList";
-import SwipeCard from './SwipeCard/SwipeCard'
+import SwipeCard from "./SwipeCard/SwipeCard";
 
 class HomeBody extends Component {
   componentDidMount() {
-    this.props.fetchStories("top-headlines",1,5);
+    this.props.fetchStories("top-headlines", 1, 5);
     this.props.fetchSource();
   }
   render() {
+    const loaderStyle = {
+      marginLeft: "500px",
+      marginTop: "200px",
+    };
+
     return (
       <section className="homeBody">
         <section className="topCards">
-          <SwipeCard/>
+          <SwipeCard />
           <WeatherCard />
         </section>
         <Tabs
@@ -32,10 +37,18 @@ class HomeBody extends Component {
           }}
         >
           <Tabs.Tab id="topStories" title="Top Stories">
-            <PostCardList stories={this.props.stories} />
+            {this.props.isFetching ? (
+              <div className="loader" style={loaderStyle}></div>
+            ) : (
+              <PostCardList stories={this.props.stories} />
+            )}
           </Tabs.Tab>
           <Tabs.Tab id="source" title="Source">
-            <SourceCardList stories={this.props.source} />
+            {this.props.isFetching ? (
+              <div className="loader" style={loaderStyle}></div>
+            ) : (
+              <SourceCardList stories={this.props.source} />
+            )}
           </Tabs.Tab>
         </Tabs>
       </section>

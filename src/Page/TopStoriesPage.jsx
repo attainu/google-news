@@ -5,6 +5,8 @@ import Pagination from "../Component/Pagination";
 import { connect } from "react-redux";
 import { fetchStories } from "../redux/action/storiesAction";
 
+
+
 class TopStoriesPage extends Component {
   state = {
     currentpageNumber: 1,
@@ -25,8 +27,12 @@ class TopStoriesPage extends Component {
       indexOfFirstStory,
       indexOfLastStory
     );
+    const loaderStyle = {
+      marginLeft: "500px",
+      marginTop: "300px",
+    };
     return this.props.isFetching ? (
-      <div>Loading....</div>
+      <div className="loader" style={loaderStyle}></div>
     ) : (
       <div>
         <PostCardList stories={currentStories} />
@@ -43,7 +49,6 @@ class TopStoriesPage extends Component {
 const mapStateToProps = (storeState) => {
   return {
     stories: storeState.storiesStatus.stories,
-
     isFetching: storeState.storiesStatus.isFetching,
   };
 };

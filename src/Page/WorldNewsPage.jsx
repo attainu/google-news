@@ -21,8 +21,15 @@ class WorldNewsPage extends Component {
   render() {
     const indexOfLastStory = this.state.currentpageNumber * this.state.postsPerPage;
     const indexOfFirstStory = indexOfLastStory - this.state.postsPerPage;
-    const currentStories = this.props.worldStories.slice(indexOfFirstStory, indexOfLastStory)
-    return (
+    const currentStories = this.props.worldStories.slice(indexOfFirstStory, indexOfLastStory);
+
+    const loaderStyle = {
+      marginLeft: "500px",
+      marginTop: "300px",
+    };
+    return this.props.isFetching ? (
+      <div className="loader" style={loaderStyle}></div>
+    ) :(
       <div>
         <PostCardList stories={currentStories} />
         <Pagination postsPerPage = {this.state.postsPerPage} totalPosts = {this.props.worldStories.length} paginate = {this.paginate}/>
@@ -34,6 +41,7 @@ class WorldNewsPage extends Component {
 const mapStateToProps = (storeState) => {
   return {
     worldStories: storeState.worldNewsStatus.stories,
+    isFetching: storeState.worldNewsStatus.isFetching,
   };
 };
 export default connect(mapStateToProps, { fetchWorldNews })(WorldNewsPage);

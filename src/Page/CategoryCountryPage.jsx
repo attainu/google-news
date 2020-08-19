@@ -35,7 +35,14 @@ class CategoryCountryPage extends Component {
       indexOfFirstStory,
       indexOfLastStory
     );
-    return (
+    const loaderStyle = {
+      marginLeft: "500px",
+      marginTop: "300px",
+    };
+
+    return this.props.isFetching ? (
+      <div className="loader" style={loaderStyle}></div>
+    ) : (
       <div>
         <PostCardList stories={currentStories} />
         <Pagination
@@ -51,6 +58,7 @@ class CategoryCountryPage extends Component {
 const mapStateToProps = (storeState) => {
   return {
     categoryStories: storeState.categoryPageStatus.stories,
+    isFetching: storeState.categoryPageStatus.isFetching,
   };
 };
 
