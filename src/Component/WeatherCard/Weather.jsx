@@ -4,10 +4,9 @@ import "./css/weather.css";
 function maxminTemp(min, max) {
   if (max && min) {
     return (
-      <span>
-        <span className='weatherData'>{min}&deg;</span>
-        <span className='weatherData'>/</span>
-        <span className='weatherData'>{max}&deg;  </span>
+      <span className= "weatherData">
+        <span className='min'>{min}&deg;</span>
+        <span className='max'>/{max}&deg;  </span>
       </span>
     );
   }

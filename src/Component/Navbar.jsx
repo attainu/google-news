@@ -28,7 +28,7 @@ class Navbar extends Component {
     console.log(auth);
     return (
       <nav>
-        <button className='menu'>
+        <button className='menu' onClick={() =>  this.props.handleSideMenu(this.props.visibility) }>
         <i className="material-icons">menu</i>
         </button>
         <NavLink to="/">

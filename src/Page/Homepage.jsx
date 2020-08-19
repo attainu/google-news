@@ -17,13 +17,25 @@ import {Animated} from "react-animated-css";
 
 
 export class Homepage extends Component {
+  state = {
+    visible : true
+  }
+
+  handleSideMenu = (visiblity) => {
+   
+    this.setState({
+      visible : !visiblity
+    })
+  }
+  
   render() {
+    console.log(this.state.visible)
     return (
       <div className="homePage">
 
-        <Navbar />
+        <Navbar handleSideMenu={this.handleSideMenu} visibility={this.state.visible}/>
         <section className="mainBody">
-        <Animated animationIn="slideInLeft" animationOut="slideOutLeft" animationInDuration={2000} animationOutDuration={2000} isVisible={true}>
+        <Animated animationIn="slideInLeft" animationOut="slideOutLeft" animationInDuration={1000} animationOutDuration={1000} isVisible={this.state.visible}>
           <SidebarMenu />
           </Animated>
           <section>

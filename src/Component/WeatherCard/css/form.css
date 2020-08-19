@@ -6,12 +6,15 @@
   align-items: center;
   padding: 0px !important;
   width: 100%;
+  border-radius: 20px;
 }
 
-.city, .country, button {
+input,
+button {
   display: inline-block;
+  border-radius: 20px;
 }
-.search{
+.search {
   border: 0px;
   border-radius: 20px;
   padding: 10px;
