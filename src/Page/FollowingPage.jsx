@@ -1,25 +1,32 @@
 import React, { Component } from 'react'
-import { connect } from "react-redux";
-import { firebaseConnect } from "react-redux-firebase";
+import firebase from '../Config/firebase.config'
+
 
 class FollowingPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            followings: []
+        };
+    }
+    componentDidMount() {
+        firebase.firestore().collection("followings")
+            .get()
+            .then(querySnapshot => {
+            const data = querySnapshot.docs.map(doc => doc.data());
+            console.log(data);
+            this.setState({ followings: data });
+            });
+        }
+
     render() {
+        const { followings } = this.state;
         return (
             <div>
-                {console.log(this.props)}
+                {/*<SourceCardList stories={followings} /> */}
             </div>
-        )
-    }
-}
-const mapStateToProps = (state) => {
-    console.log(state)
-    return {
-        following: state.firestore.ordered.following,
-    };
-};
+        );
+    }}
 
-export default 
-    connect(mapStateToProps,
-    firebaseConnect([{ collection: "following" }])) 
-(FollowingPage);
+export default FollowingPage;
 

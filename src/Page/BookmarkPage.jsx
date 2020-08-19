@@ -1,33 +1,33 @@
-import React, { Component } from "react";
-import { firebaseConnect } from "react-redux-firebase";
-import { compose } from "redux";
-import { connect } from "react-redux";
+import React,{Component} from "react";
 import PostCardList from "../Component/Card/PostCardList";
-import { fetchFirebaseData } from "../redux/action/getFirebaseAction";
+import firebase from '../Config/firebase.config'
 
 class BookmarkPage extends Component {
-//     componentDidMount() {
-//         this.props.fetchFirebaseData();
-// }
+    constructor(props) {
+        super(props);
+        this.state = {
+            bookmarks: []
+        };
+    }
+    componentDidMount() {
+        firebase.firestore().collection("bookmarks")
+            .get()
+            .then(querySnapshot => {
+            const data = querySnapshot.docs.map(doc => doc.data());
+            console.log(data);
+            this.setState({ bookmarks: data });
+            });
+        }
 
     render() {
-       // const {bookmarks} =this.props
+        const { bookmarks } = this.state;
         return (
             <div>
-                {/* <PostCardList stories={this.props.}/> */}
+                <PostCardList stories={bookmarks}/>
             </div>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    console.log(state);
-    return {
-       // bookmark: state.firestore.ordered.bookmarks,
-    };
-};
 
-export default compose(
-    connect(mapStateToProps),
-   // firebaseConnect([{collection: 'bookmarks'}])
-)(BookmarkPage);
+export default BookmarkPage;
