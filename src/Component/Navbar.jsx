@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../CommonCss/CommonCss.css";
 import "./css/Navbar.css";
 import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
+import { Link,NavLink, withRouter } from "react-router-dom";
 import { signOut } from "../redux/action/authAction";
 import { fetchSearchResults } from "../redux/action/searchAction";
 
@@ -28,14 +28,18 @@ class Navbar extends Component {
     console.log(auth);
     return (
       <nav>
+        <button className='menu'>
         <i className="material-icons">menu</i>
+        </button>
+        <NavLink to="/">
         <section className="logo">
           <img
             src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg"
             alt=""
-          />
-          <h1>News</h1>
-        </section>
+            />
+            <h1>News</h1>
+          </section>
+            </NavLink>
         <form onSubmit={this.handleSubmit}>
           <input
             onChange={this.handleChange}
@@ -49,13 +53,17 @@ class Navbar extends Component {
 
         {!auth.uid ? (
           <>
-            <h1>{auth.email}</h1>
             <Link to="/login">
               <h1>Login</h1>
             </Link>
           </>
         ) : (
+          <>
+          <span className='userNameImage'>
+          <img src={auth.photoURL?auth.photoURL:''} alt="userImage"/>
+          <h1>{auth.displayName?auth.displayName:'Add Profile details'}</h1></span>
           <h1 onClick={this.props.signOut}>logout</h1>
+          </>
         )}
       </nav>
     );
