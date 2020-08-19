@@ -1,0 +1,9 @@
+.weather{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+}
+.weatherData{
+    font-weight: bold;
+    font-size: 1rem;
+}

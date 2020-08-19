@@ -25,47 +25,47 @@ class SidebarMenu extends Component {
       <div>
         <ul className="menuList">
           <NavLink to="/">
-            <li>Home</li>
+            <li className='sideMenuStyle'>Home</li>
           </NavLink>
           <NavLink to="/topStories">
-            <li><strong>Top stories</strong></li>
+            <li className='sideMenuStyle'>Top stories</li>
           </NavLink>
           <NavLink to="/source">
-            <li>Source</li>
+            <li className='sideMenuStyle'>Source</li>
           </NavLink>
           <NavLink to="/following">
-          <li>Following</li>
+          <li className='sideMenuStyle'>Following</li>
           </NavLink>
           <NavLink to="/bookmark">
-          <li>Bookmark</li>
+          <li className='sideMenuStyle'>Bookmark</li>
           </NavLink>
           <hr />
 
-          <li onClick={this.handleClick} id="0">
+          <li className='sideMenuStyle' onClick={this.handleClick} id="0">
             Business
           </li>
 
-          <li onClick={this.handleClick} id="1">
+          <li className='sideMenuStyle' onClick={this.handleClick} id="1">
             Technology
           </li>
-          <li onClick={this.handleClick} id="2">
+          <li className='sideMenuStyle' onClick={this.handleClick} id="2">
             Entertainment
           </li>
-          <li onClick={this.handleClick} id="3">
+          <li className='sideMenuStyle' onClick={this.handleClick} id="3">
             Sports
           </li>
-          <li onClick={this.handleClick} id="4">
+          <li className='sideMenuStyle' onClick={this.handleClick} id="4">
             Science
           </li>
-          <li onClick={this.handleClick} id="5">
+          <li className='sideMenuStyle' onClick={this.handleClick} id="5">
             Health
           </li>
-          <li onClick={this.handleClick} id="6">
+          <li className='sideMenuStyle' onClick={this.handleClick} id="6">
             India
           </li>
 
           <NavLink to="/worldnews">
-            <li>World</li>
+            <li className='sideMenuStyle'>World</li>
           </NavLink>
         </ul>
       </div>

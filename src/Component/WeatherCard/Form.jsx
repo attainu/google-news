@@ -5,7 +5,7 @@ const Form = (props) => {
  
   return (
     <div>
-      <form onSubmit={props.loadweather}>
+      <form onSubmit={props.loadweather} className='weatherForm'>
         <div>{props.error ? error() : ""}</div>
         <div className="city">
           <input
@@ -16,7 +16,7 @@ const Form = (props) => {
           />
         </div>
         <div>
-          <button className="btn btn-warning">Get Weather</button>
+          <button className="search"><i  className="fas fa-search-location"/></button>
         </div>
       </form>
     </div>
