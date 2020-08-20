@@ -8,7 +8,7 @@ import axios from "axios";
 import "weather-icons/css/weather-icons.css";
 
 const Api_Key = "a6adae971d0eac8ba295fd8a768037a1";
-const BaseURL = "http://api.openweathermap.org/data/2.5/weather?";
+const BaseURL = "https://api.openweathermap.org/data/2.5/weather?";
 
 class WeatherCard extends React.Component {
   constructor() {
@@ -92,7 +92,6 @@ class WeatherCard extends React.Component {
         // setting icons
         this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
         console.log(response);
-        
       });
     } else {
       this.setState({
@@ -145,7 +144,12 @@ class WeatherCard extends React.Component {
   render() {
     return (
       <div className="WeatherCard">
-        <button className="search"><i onClick={this.handleClick} className="fas fa-map-marker-alt"> Current Location</i></button>
+        <button className="search">
+          <i onClick={this.handleClick} className="fas fa-map-marker-alt">
+            {" "}
+            Current Location
+          </i>
+        </button>
         <Form loadweather={this.getWeatherByCity} error={this.state.error} />
         <Weather
           cityname={this.state.city}
