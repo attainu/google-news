@@ -128,6 +128,119 @@ function checkValidServiceWorker(swUrl, config) {
     });
 }
 
+const cacheName = "googleNews-cache";
+const cacheFiles = [
+    "/",
+    "./CommonCss/CommonCss.css",
+    "./CommonCss/loader.css",
+    "./Component/Card/css/PostCard.css",
+    "./Component/Card/css/SourceCard.css",
+    "./Component/Card/css/SourceCardList.css",
+    "./Component/Card/BookmarkCard.jsx",
+    "./Component/Card/BookmarkCardList.jsx",
+    "./Component/Card/FollowingCard.jsx",
+    "./Component/Card/FollowingCardList.jsx",
+    "./Component/Card/PostCard.jsx",
+    "./Component/Card/PostCardList.jsx",
+    "./Component/Card/SourceCard.jsx",
+    "./Component/Card/SourceCardList.jsx",
+    "./Component/SwipeCard/css/SwipeCard.css",
+    "./Component/SwipeCard/SingleCard.jsx",
+    "./Component/SwipeCard/SwipeCard.jsx",
+    "./Component/WeatherCard/css/form.css",
+    "./Component/WeatherCard/css/weather.css",
+    "./Component/WeatherCard/css/WeatherCard.css",
+    "./Component/WeatherCard/Form.jsx",
+    "./Component/WeatherCard/Weather.jsx",
+    "./Component/WeatherCard/WeatherCard.jsx",
+    "./Component/css/HomeBody.css",
+    "./Component/css/Navbar.css",
+    "./Component/css/NewsCard.css",
+    "./Component/css/Pagination.css",
+    "./Component/css/SidebarMenu.css",
+    "./Config/api.config.js",
+    "./Config/firebase.config.js",
+    "./Component/HomeBody.jsx",
+    "./Component/Navbar.jsx",
+    "./Component/Pagination.jsx",
+    "./Component/SidebarMenu.jsx",
+    "./Page/css/HomePage.css",
+    "./Page/css/LoginPage.css",
+    "./Page/css/ProfileEdit.css",
+    "./Page/css/SplashScreen.css",
+    "./Page/BookmarkPage.jsx",
+    "./Page/CategoryCountryPage.jsx",
+    "./Page/FollowingPage.jsx",
+    "./Page/Homepage.jsx",
+    "./Page/LoginPage.jsx",
+    "./Page/ProfileEditPage.jsx",
+    "./Page/SearchResultPage.js",
+    "./Page/SourcePage.jsx",
+    "./Page/SplashScreen.jsx",
+    "./Page/TopStoriesPage.jsx",
+    "./Page/WorldNewsPage.jsx",
+    "./redux/action/authAction.js",
+    "./redux/action/bookmarkAction.js",
+    "./redux/action/categoryActions.js",
+    "./redux/action/followingAction.js",
+    "./redux/action/getFirebaseAction.js",
+    "./redux/action/searchAction.js",
+    "./redux/action/sourceAction.js",
+    "./redux/action/storiesAction.js",
+    "./redux/action/worldNewsAction.js",
+    "./redux/reducer/authReducer.js",
+    "./redux/reducer/bookmarkReducer.js",
+    "./redux/reducer/categoryReducer.js",
+    "./redux/reducer/followingReducer.js",
+    "./redux/reducer/getFirebaseReducer.js",
+    "./redux/reducer/searchReducer.js",
+    "./redux/reducer/sourceReducer.js",
+    "./redux/reducer/storiesReducer.js",
+    "./redux/reducer/worldNewsReducer.js",
+    "./redux/actionTypes.js",
+    "./redux/rootReducer.js",
+    "./redux/store.js",
+    "./App.js",
+    "./App.test.js",
+    "./index.js",
+    "./logo.svg",
+    "./setupTests.js",
+    "./serviceWorker.js",
+    "../public/images/48.png",
+    "../public/images/72.png",
+    "../public/images/96.png",
+    "../public/images/144.png",
+    "../public/images/192.png",
+    "../public/images/512.png",
+    "../public/favicon.ico",
+    "../public/index.html",
+    "../public/manifest.json",
+    "../public/robots.txt"
+
+
+];
+
+window.self.addEventListener("install", (event) => {
+    const cacheRequests = async () => {
+        const googleNewsCache = await caches.open(cacheName);
+        await googleNewsCache.addAll(cacheFiles);
+    };
+    event.waitUntil(cacheRequests());
+});
+window.self.addEventListener("active", (event) => {
+    console.log("active");
+});
+window.self.addEventListener("fetch", (event) => {
+    const matchCaches = async () => {
+        // const response = await cache.match(event.request.url);
+        // if (response === undefined) return fetch(event.request.url).catch(error => {
+        //     return caches.match('./offline.html')
+        // });
+        // return response;
+    };
+    event.respondWith(matchCaches());
+});
+
 export function unregister() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready.then(registration => {

@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 class FollowingCard extends Component {
   deleteData = (uid,id) =>{
     firebase
-        .firestore().collection('users').doc(uid).collection("bookmarks").doc(id).delete().then(function() {
+        .firestore().collection('users').doc(uid).collection("followings").doc(id).delete().then(function() {
       console.log("Document successfully deleted!");
   }).catch(function(error) {
       console.error("Error removing document: ", error);
