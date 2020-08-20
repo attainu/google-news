@@ -1,9 +1,20 @@
 import React, { Component } from "react";
 import "./css/SourceCard.css";
+import firebase from "../../Config/firebase.config";
+import { connect } from "react-redux";
 
 class FollowingCard extends Component {
+  deleteData = (uid,id) =>{
+    firebase
+        .firestore().collection('users').doc(uid).collection("bookmarks").doc(id).delete().then(function() {
+      console.log("Document successfully deleted!");
+  }).catch(function(error) {
+      console.error("Error removing document: ", error);
+  });
+}
   render() {
     const {
+      id,
       name,
       description,
       category,
@@ -11,6 +22,8 @@ class FollowingCard extends Component {
       language,
       country,
     } = this.props.article;
+    const {auth}=this.props
+
 
     return (
       <section className="SourceCard">
@@ -39,7 +52,7 @@ class FollowingCard extends Component {
             </span>
           </section>
         </a>
-        <button className="followButton">
+        <button className="followButton" onClick={()=>this.deleteData(auth.uid,id)}>
           <i className="fas fa-minus-circle"> Remove</i>
         </button>
       </section>
@@ -47,4 +60,11 @@ class FollowingCard extends Component {
   }
 }
 
-export default FollowingCard;
+const mapStateToProps = (state) => {
+  return {
+      authError: state.auth.authError,
+      auth: state.firebase.auth
+  };
+};
+
+export default connect(mapStateToProps,null)(FollowingCard);

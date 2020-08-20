@@ -28,8 +28,7 @@ class PostCard extends Component {
       urlToImage,
       source: { name },
     } = this.props.article;
-
-    
+    const {auth } = this.props; 
 
     function timeStampToDate(timeStamp) {
       const dateObj = new Date(timeStamp);
@@ -74,8 +73,8 @@ class PostCard extends Component {
           urlToImage:urlToImage,
           name:name,
         },()=>{
-        console.log('create firestore')
-        this.props.createBookmark(this.state)}
+        console.log('create firestore',this.state)
+        this.props.createBookmark(auth.uid,this.state)}
         )
         }}><i  className="far fa-bookmark"> bookmark</i></button>
       {/* <section className="ViewRelatedPosts">
@@ -86,9 +85,16 @@ class PostCard extends Component {
   );}
 };
 
+const mapStateToProps = (state) => {
+  return {
+      authError: state.auth.authError,
+      auth: state.firebase.auth
+  };
+};
+
 const mapDispatchToProps = dispatch =>{
   return{
-    createBookmark: (bookmarks)=> dispatch(createBookmark(bookmarks))
+    createBookmark: (uid,bookmarks)=> dispatch(createBookmark(uid,bookmarks))
   }
 }
-export default connect(null, mapDispatchToProps)(PostCard);
+export default connect(mapStateToProps, mapDispatchToProps)(PostCard);

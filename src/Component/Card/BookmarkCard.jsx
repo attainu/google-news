@@ -1,11 +1,23 @@
 import React, { Component } from "react";
 import './css/PostCard.css'
+import firebase from "../../Config/firebase.config";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
 
 class BookmarkCard extends Component {
- 
+  
+  deleteData = (uid,id) =>{
+    firebase
+        .firestore().collection('users').doc(uid).collection("bookmarks").doc(id).delete().then(function() {
+      console.log("Document successfully deleted!");
+  }).catch(function(error) {
+      console.error("Error removing document: ", error);
+  });
+}
   render() {
     const {
+      id,
       title,
       author,
       description,
@@ -15,7 +27,7 @@ class BookmarkCard extends Component {
       name,
     } = this.props.article;
 
-    
+    const {auth}=this.props
 
     function timeStampToDate(timeStamp) {
       const dateObj = new Date(timeStamp);
@@ -26,6 +38,7 @@ class BookmarkCard extends Component {
   
       return `${month}/${date}/${year}`;
     }
+
 
     return (
     <section className="postCard">
@@ -40,7 +53,7 @@ class BookmarkCard extends Component {
           />
           <section className='details'>
               <p className="cardTitle"> {title} </p>
-             
+            
           <p className="cardDescription"> {description} </p>
           <section className='authorDetails'>
           <p className="cardAuthor"><strong>Author :</strong> {author?author : 'No data found'} </p>
@@ -51,12 +64,17 @@ class BookmarkCard extends Component {
           </section>
         </a>
         <button 
-          className='bookmarkButton'
-         ><i className="fas fa-minus-circle">Remove</i></button>
-     
+          className='bookmarkButton' onClick={()=>this.deleteData(auth.uid,id)}
+            ><i className="fas fa-minus-circle">Remove</i></button>
+    
     </section>
   );}
 };
+const mapStateToProps = (state) => {
+  return {
+      authError: state.auth.authError,
+      auth: state.firebase.auth
+  };
+};
 
-
-export default BookmarkCard;
+export default connect(mapStateToProps,null)(BookmarkCard);

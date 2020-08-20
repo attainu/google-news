@@ -23,6 +23,7 @@ class SourceCard extends Component {
             language,
             country,
         } = this.props.article;
+        const {auth } = this.props; 
 
         return (
             <section className="SourceCard">
@@ -53,7 +54,7 @@ class SourceCard extends Component {
                             country: country,
                         }, () => {
                             console.log('create firestore')
-                            this.props.createFollowing(this.state)
+                            this.props.createFollowing(auth.uid,this.state)
                         }
                         )
                     }}><i className="far fa-star"> Follow</i></button>
@@ -62,9 +63,17 @@ class SourceCard extends Component {
     }
 };
 
+const mapStateToProps = (state) => {
+    return {
+        authError: state.auth.authError,
+        auth: state.firebase.auth
+    };
+  };
+  
+
 const mapDispatchToProps = dispatch =>{
     return{
-        createFollowing: (follows)=> dispatch(createFollowing(follows))
+        createFollowing: (uid,follows)=> dispatch(createFollowing(uid,follows))
     }
   }
-  export default connect(null, mapDispatchToProps)(SourceCard);
+  export default connect(mapStateToProps, mapDispatchToProps)(SourceCard);

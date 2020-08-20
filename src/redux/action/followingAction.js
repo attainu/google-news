@@ -1,7 +1,7 @@
-export const createFollowing =(following)=> {
+export const createFollowing =(uid,following)=> {
     return(dispatch,getState, { getFirebase,getFirestore })=>{
         const firestore = getFirestore();
-        firestore.collection('followings').add({
+        firestore.collection('users').doc(uid).collection('followings').add({
             ...following,
         }).then(()=>{
 
