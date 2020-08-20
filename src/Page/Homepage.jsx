@@ -12,7 +12,7 @@ import CategoryCountryPage from "./CategoryCountryPage";
 import WorldNewsPage from "./WorldNewsPage";
 import SearchResultPage from './SearchResultPage'
 import {Animated} from "react-animated-css";
-
+import Custom404Page from './Custom404Page'
 
 
 
@@ -52,7 +52,7 @@ export class Homepage extends Component {
         />
          <Route exact path="/worldnews" component={WorldNewsPage} />
          <Route exact path='/searchPage/:search' component = {SearchResultPage}/>   
-        
+         <Route component={Custom404Page}/>
           </Switch>
           </section>
         </section>

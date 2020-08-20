@@ -36,7 +36,7 @@ class CategoryCountryPage extends Component {
       indexOfLastStory
     );
     const loaderStyle = {
-      marginLeft: "500px",
+      marginLeft: "600px",
       marginTop: "300px",
     };
 

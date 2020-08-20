@@ -1,0 +1,23 @@
+.page_404 {
+  width: 90vw;
+  height: 90vh;
+  background-color:#222f3e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.error_404 {
+  font-size: 5rem;
+  letter-spacing: 10px;
+  color: #dcdde1;
+}
+
+.para{
+  letter-spacing: 10px;
+  font-size: 2rem;
+  color:#95afc0;
+  
+}
+
