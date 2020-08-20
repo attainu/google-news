@@ -24,7 +24,7 @@ class WorldNewsPage extends Component {
     const currentStories = this.props.worldStories.slice(indexOfFirstStory, indexOfLastStory);
 
     const loaderStyle = {
-      marginLeft: "500px",
+      marginLeft: "600px",
       marginTop: "300px",
     };
     return this.props.isFetching ? (

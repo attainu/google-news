@@ -16,7 +16,7 @@ class HomeBody extends Component {
   }
   render() {
     const loaderStyle = {
-      marginLeft: "500px",
+      marginLeft: "600px",
       marginTop: "200px",
     };
 
