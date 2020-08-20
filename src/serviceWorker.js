@@ -232,11 +232,11 @@ window.self.addEventListener("active", (event) => {
 });
 window.self.addEventListener("fetch", (event) => {
     const matchCaches = async () => {
-        // const response = await cache.match(event.request.url);
-        // if (response === undefined) return fetch(event.request.url).catch(error => {
-        //     return caches.match('./offline.html')
-        // });
-        // return response;
+       const response = await window.cache.match(event.request.url);
+        if (response === undefined) return fetch(event.request.url).catch(error => {
+            return caches.match('./offline.html')
+        });
+        return response;
     };
     event.respondWith(matchCaches());
 });
