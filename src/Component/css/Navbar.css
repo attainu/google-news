@@ -15,7 +15,8 @@ form {
 .userNameImage{
   display: flex;
   justify-content: space-between;
-  padding: 0px 20px;
+  align-items: center;
+  padding: 0px 30px;
 }
 .menu{
   border: 0px;
@@ -24,4 +25,11 @@ form {
   font-size: 1rem;
   color: black;
   background-color: white;
+}
+
+.userProfileImage{
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+
 }

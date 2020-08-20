@@ -59,9 +59,10 @@ class Navbar extends Component {
           </>
         ) : (
           <>
+          <Link exact to='/profileEdit'>
           <span className='userNameImage'>
-          <img src={auth.photoURL?auth.photoURL:''} alt="userImage"/>
-          <h1>{auth.displayName?auth.displayName:'Add Profile details'}</h1></span>
+          {auth.photoURL?<img className='userProfileImage' src={auth.photoURL} alt="userImage"/>:<i></i>}
+          <h1>{auth.displayName?auth.displayName:'Add Profile details'}</h1></span></Link>
           <h1 onClick={this.props.signOut}>logout</h1>
           </>
         )}
