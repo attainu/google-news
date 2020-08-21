@@ -7,13 +7,15 @@ import PostCardList from "./Card/PostCardList";
 import { connect } from "react-redux";
 import { fetchStories } from "../redux/action/storiesAction";
 import { fetchCategoryStories } from "../redux/action/categoryActions";
-import SourceCardList from "./Card/SourceCardList";
+import { fetchWorldNews } from "../redux/action/worldNewsAction";
 import SwipeCard from "./SwipeCard/SwipeCard";
+import SourcePage from "../Page/SourcePage";
 
 class HomeBody extends Component {
   componentDidMount() {
     this.props.fetchStories("top-headlines", 1, 5);
-    this.props.fetchCategoryStories("business", 1, 5); //have to pass 1st parameter dynamically according to tab title so that it will fetch data respective to tab title name
+    this.props.fetchCategoryStories("business", 1, 5);
+    this.props.fetchWorldNews(1, 5);
   }
   handleTabClick = (e) => {};
   render() {
@@ -55,21 +57,27 @@ class HomeBody extends Component {
             {this.props.isCategoryFetching ? (
               <div className="loader" style={loaderStyle}></div>
             ) : (
-              <PostCardList stories={this.props.categoryStories} />
+              <>
+                <PostCardList stories={this.props.categoryStories} />
+                <Link to="/categories/business">
+                  <button style={{ marginLeft: "550px" }}>View More</button>
+                </Link>
+              </>
             )}
           </Tabs.Tab>
-          <Tabs.Tab id="technology" title="Technology">
-            {this.props.isCategoryFetching ? (
-              <div className="loader" style={loaderStyle}></div>
-            ) : (
-              <PostCardList stories={this.props.categoryStories} />
-            )}
+          <Tabs.Tab id="source" title="Source">
+            <SourcePage />
           </Tabs.Tab>
-          <Tabs.Tab id="entertainment" title="Entertainment">
-            {this.props.isCategoryFetching ? (
+          <Tabs.Tab id="world" title="World">
+            {this.props.isworldNewsFetching ? (
               <div className="loader" style={loaderStyle}></div>
             ) : (
-              <PostCardList stories={this.props.categoryStories} />
+              <>
+                <PostCardList stories={this.props.worldstories} />
+                <Link to="/worldNews">
+                  <button style={{ marginLeft: "550px" }}>View More</button>
+                </Link>
+              </>
             )}
           </Tabs.Tab>
         </Tabs>
@@ -85,9 +93,14 @@ const mapStateToProps = (storeState) => {
 
     categoryStories: storeState.categoryPageStatus.stories,
     isCategoryFetching: storeState.categoryPageStatus.isFetching,
+
+    worldstories: storeState.worldNewsStatus.stories,
+    isworldNewsFetching: storeState.worldNewsStatus.isFetching,
   };
 };
 
-export default connect(mapStateToProps, { fetchStories, fetchCategoryStories })(
-  HomeBody
-);
+export default connect(mapStateToProps, {
+  fetchStories,
+  fetchCategoryStories,
+  fetchWorldNews,
+})(HomeBody);

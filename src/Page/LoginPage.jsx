@@ -71,13 +71,7 @@ class LoginPage extends Component {
           </form>
         </div>
         <div className="form-container sign-in-container">
-          <div className="closeSection">
-            <Link to="/">
-              <button className="closeButton">
-                <i className="fas fa-times" />
-              </button>
-            </Link>
-          </div>
+
           <form action="#">
             <h1>Sign in</h1>
             <input
@@ -93,11 +87,17 @@ class LoginPage extends Component {
               onChange={this.handleChange}
             />
             <button onClick={this.handleSignIn}>Sign In</button>
+            <div>{authError ? <p className="pTag">{authError}</p> : null}</div>
+            <hr style={{width:'100%',marginTop:'1.2rem'}}/>
+            <Link to="/">
+              <button>
+                Skip
+              </button>
+            </Link>
+
             {/* <p className='pTag'>or</p>
                         <GoogleButton onClick={this.loginWithGoogle}/> */}
           </form>
-          <div>{authError ? <p className="pTag">{authError}</p> : null}</div>
-          {/*todo not displayed properly*/}
         </div>
         <div className="overlay-container">
           <div className="overlay">

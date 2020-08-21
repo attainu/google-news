@@ -21,10 +21,10 @@ export class Homepage extends Component {
     visible : true
   }
 
-  handleSideMenu = (visiblity) => {
+  handleSideMenu = (visibility) => {
    
     this.setState({
-      visible : !visiblity
+      visible : !visibility
     })
   }
   
@@ -36,7 +36,8 @@ export class Homepage extends Component {
         <Navbar handleSideMenu={this.handleSideMenu} visibility={this.state.visible}/>
         <section className="mainBody">
         <Animated animationIn="slideInLeft" animationOut="slideOutLeft" animationInDuration={1000} animationOutDuration={1000} isVisible={this.state.visible}>
-          <SidebarMenu />
+          
+          {this.state.visible?<SidebarMenu />:''}
           </Animated>
           <section>
           <Switch>
