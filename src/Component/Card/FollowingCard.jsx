@@ -13,7 +13,6 @@ class FollowingCard extends Component {
       .doc(id)
       .delete()
       .then(function () {
-        //window.location.href = "/following";
         console.log("Document successfully deleted!");
       })
       .catch(function (error) {

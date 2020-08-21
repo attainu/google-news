@@ -9,13 +9,14 @@ import { fetchStories } from "../redux/action/storiesAction";
 import { fetchCategoryStories } from "../redux/action/categoryActions";
 import { fetchWorldNews } from "../redux/action/worldNewsAction";
 import SwipeCard from "./SwipeCard/SwipeCard";
-import SourcePage from "../Page/SourcePage";
-
+import { fetchSource } from "../redux/action/sourceAction";
+import SourceCardList from "./Card/SourceCardList";
 class HomeBody extends Component {
   componentDidMount() {
     this.props.fetchStories("top-headlines", 1, 5);
     this.props.fetchCategoryStories("business", 1, 5);
     this.props.fetchWorldNews(1, 5);
+    this.props.fetchSource("in");
   }
   handleTabClick = (e) => {};
   render() {
@@ -66,7 +67,16 @@ class HomeBody extends Component {
             )}
           </Tabs.Tab>
           <Tabs.Tab id="source" title="Source">
-            <SourcePage />
+            {this.props.isSourceFetching ? (
+              <div className="loader" style={loaderStyle}></div>
+            ) : (
+              <>
+                <SourceCardList stories={this.props.sources} />
+                <Link to="/source">
+                  <button style={{ marginLeft: "550px" }}>View More</button>
+                </Link>
+              </>
+            )}
           </Tabs.Tab>
           <Tabs.Tab id="world" title="World">
             {this.props.isworldNewsFetching ? (
@@ -96,6 +106,9 @@ const mapStateToProps = (storeState) => {
 
     worldstories: storeState.worldNewsStatus.stories,
     isworldNewsFetching: storeState.worldNewsStatus.isFetching,
+
+    sources: storeState.sourceStatus.source,
+    isSourceFetching: storeState.sourceStatus.isSourceFetching,
   };
 };
 
@@ -103,4 +116,5 @@ export default connect(mapStateToProps, {
   fetchStories,
   fetchCategoryStories,
   fetchWorldNews,
+  fetchSource,
 })(HomeBody);
