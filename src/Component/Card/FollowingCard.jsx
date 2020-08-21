@@ -7,6 +7,7 @@ class FollowingCard extends Component {
   deleteData = (uid,id) =>{
     firebase
         .firestore().collection('users').doc(uid).collection("followings").doc(id).delete().then(function() {
+          window.location.href="/following"
       console.log("Document successfully deleted!");
   }).catch(function(error) {
       console.error("Error removing document: ", error);

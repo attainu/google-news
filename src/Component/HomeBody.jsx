@@ -43,12 +43,8 @@ class HomeBody extends Component {
               <PostCardList stories={this.props.stories} />
             )}
           </Tabs.Tab>
-          <Tabs.Tab id="source" title="Source">
-            {this.props.isFetching ? (
-              <div className="loader" style={loaderStyle}></div>
-            ) : (
-              <SourceCardList stories={this.props.source} />
-            )}
+          <Tabs.Tab id="source" title="">
+            
           </Tabs.Tab>
         </Tabs>
       </section>

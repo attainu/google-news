@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import './css/PostCard.css'
 import firebase from "../../Config/firebase.config";
-import { Redirect } from "react-router-dom";
+import { Redirect,useHistory } from "react-router-dom";
 import { connect } from "react-redux";
-
+import ReactDOM from 'react-dom'
 
 class BookmarkCard extends Component {
   
   deleteData = (uid,id) =>{
     firebase
         .firestore().collection('users').doc(uid).collection("bookmarks").doc(id).delete().then(function() {
+          window.location.href="/bookmark"
       console.log("Document successfully deleted!");
   }).catch(function(error) {
       console.error("Error removing document: ", error);
@@ -41,7 +42,7 @@ class BookmarkCard extends Component {
 
 
     return (
-    <section className="postCard">
+    <section id={`post${id}`} className={`postCard`}>
       <a target="_blank" rel="noopener noreferrer" href={url} alt={name+' Url'}>
           <section className="mainPostDetails">
           <i  className="fas fa-bookmark"></i>

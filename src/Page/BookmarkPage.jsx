@@ -14,6 +14,7 @@ class BookmarkPage extends Component {
 componentDidMount() {
     let that = this;
     const {auth}=that.props
+    if (auth.uid){
     console.log(auth.uid)
     firebase
         .firestore()
@@ -27,8 +28,9 @@ componentDidMount() {
 
         console.log(data);
         this.setState({bookmarks: data });
-        });
+        });}
 }
+
 
 render() {
     const {bookmarks } = this.state;

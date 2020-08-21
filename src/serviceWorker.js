@@ -215,8 +215,13 @@ const cacheFiles = [
     "../public/favicon.ico",
     "../public/index.html",
     "../public/manifest.json",
-    "../public/robots.txt"
-
+    "../public/robots.txt",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
 
 ];
 

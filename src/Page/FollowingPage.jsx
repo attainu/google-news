@@ -14,7 +14,8 @@ class FollowingPage extends Component {
     componentDidMount() {
         let that = this;
         const {auth}=that.props
-        firebase.firestore()        
+        if(auth.uid)
+        {firebase.firestore()        
         .collection('users').doc(auth.uid)
         .collection("followings")
             .get()
@@ -23,7 +24,7 @@ class FollowingPage extends Component {
             );
             console.log(data);
             this.setState({ followings: data });
-            });
+            });}
         }
 
     render() {
