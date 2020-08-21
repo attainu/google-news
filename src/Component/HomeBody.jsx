@@ -13,7 +13,7 @@ import SwipeCard from "./SwipeCard/SwipeCard";
 class HomeBody extends Component {
   componentDidMount() {
     this.props.fetchStories("top-headlines", 1, 5);
-    this.props.fetchCategoryStories("business", 1, 5);//have to pass 1st parameter dynamically according to tab title so that it will fetch data respective to tab title name
+    this.props.fetchCategoryStories("business", 1, 5); //have to pass 1st parameter dynamically according to tab title so that it will fetch data respective to tab title name
   }
   handleTabClick = (e) => {};
   render() {
@@ -91,4 +91,3 @@ const mapStateToProps = (storeState) => {
 export default connect(mapStateToProps, { fetchStories, fetchCategoryStories })(
   HomeBody
 );
-
