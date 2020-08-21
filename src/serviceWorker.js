@@ -216,7 +216,7 @@ const cacheFiles = [
     "../public/index.html",
     "../public/manifest.json",
     "../public/robots.txt",
-    "",
+    "./Page/Custom404Page.jsx",
     "",
     "",
     "",
@@ -237,9 +237,9 @@ window.self.addEventListener("active", (event) => {
 });
 window.self.addEventListener("fetch", (event) => {
     const matchCaches = async () => {
-       const response = await window.cache.match(event.request.url);
+      const response = await window.cache.match(event.request.url);
         if (response === undefined) return fetch(event.request.url).catch(error => {
-            return caches.match('./offline.html')
+            return caches.match('./Page/Custom404Page.jsx')
         });
         return response;
     };
