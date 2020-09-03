@@ -1,0 +1,35 @@
+nav {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.logo {
+  display: flex;
+}
+form {
+  width: 50%;
+  margin: 0px !important;
+}
+.userNameImage{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 30px;
+}
+.menu{
+  border: 0px;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 1rem;
+  color: black;
+  background-color: white;
+}
+
+.userProfileImage{
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+padding:0px 10px;
+}

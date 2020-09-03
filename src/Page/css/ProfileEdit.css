@@ -1,0 +1,38 @@
+.profileEdit{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.closeSection{
+    padding: 20px;
+    display: flex;
+    width: 90%;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.closeButton{
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    border-radius: 30px;
+}
+
+#photoURL{
+width: auto;
+margin: 1rem;
+}
+#displayName{
+margin: 1rem;
+}
+#email{
+margin: 1rem;
+}
+#submitProfile{
+margin: 1rem;
+}
+.progress{
+    width: 100vw;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}

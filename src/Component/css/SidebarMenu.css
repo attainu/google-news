@@ -1,0 +1,10 @@
+.menuList{
+    list-style: none;
+    font-size: 1.5rem;
+    padding-left: 20px;
+}
+.sideMenuStyle{
+    font-weight:lighter;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
